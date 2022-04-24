@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/Models/Task.dart';
+import 'package:todolist/widgets.dart';
+class ToDoList extends StatefulWidget {
+  const ToDoList({Key key}) : super(key: key);
 
-class ToDoList extends StatelessWidget {
-  // const ToDoList({Key key}) : super(key: key);
+
+  @override
+  State<ToDoList> createState() => _ToDoListState();
+}
+
+class _ToDoListState extends State<ToDoList> {
+
   List<Task> tasks = [
     Task(
       title: 'Task 1',
@@ -23,7 +31,6 @@ class ToDoList extends StatelessWidget {
       isDone: false,
     ),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,10 +41,8 @@ class ToDoList extends StatelessWidget {
         child: ListView.builder(
             itemCount: tasks.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(tasks[index].title),
-                subtitle: Text(tasks[index].description),
-                trailing: Icon(Icons.arrow_forward_ios),
+              return TaskItem(
+                task: tasks[index],
               );
             }),
       ),
