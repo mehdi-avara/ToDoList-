@@ -13,6 +13,11 @@ class ToDoList extends StatefulWidget {
 
 class _ToDoListState extends State<ToDoList> {
 
+  void AddTask(Task task){
+    setState(() {
+      tasks.add(task);
+    });
+  }
 
   void changeIsDone(int index){
     setState(() {
@@ -25,26 +30,7 @@ class _ToDoListState extends State<ToDoList> {
     });
   }
 
-  List<Task> tasks = [
-    Task(
-      title: 'Task 1',
-      description: 'Description 1',
-      date: DateTime.now(),
-      isDone: true,
-    ),
-    Task(
-      title: 'Task 2',
-      description: 'Description 2',
-      date: DateTime.now(),
-      isDone: false,
-    ),
-    Task(
-      title: 'Task 3',
-      description: 'Description 3',
-      date: DateTime.now(),
-      isDone: false,
-    ),
-  ];
+  List<Task> tasks = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +54,9 @@ class _ToDoListState extends State<ToDoList> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => addTask()),
+                    MaterialPageRoute(builder: (context) => addTask(
+                      AddTask: AddTask,
+                    )),
                   );
                 },
                 child: Container(
