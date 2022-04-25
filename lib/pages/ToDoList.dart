@@ -43,6 +43,7 @@ class _ToDoListState extends State<ToDoList> {
 
                       colors: [
                         Colors.blue,
+                        Colors.yellow,
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,

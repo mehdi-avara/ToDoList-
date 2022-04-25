@@ -16,7 +16,7 @@ class TaskItem extends StatelessWidget {
         leading: Checkbox(
           value: isDone,
           onChanged: (bool value) {
-            task.changeIsDone();
+            Task.changeIsDone(task.getId());
           },
         ),
         title: Text(title),
@@ -24,8 +24,8 @@ class TaskItem extends StatelessWidget {
         trailing: IconButton(
           icon: Icon(Icons.delete),
           onPressed: () {
-
-            task.deleteTask();
+            print('delete');
+            Task.deleteTask(task.getId());
           },
         ),
       ),

@@ -4,7 +4,7 @@ class Task{
       title: 'Task 1',
       description: 'Description 1',
       date: DateTime.now().toString(),
-      isDone: false,
+      isDone: true,
     ),
     Task(
       title: 'Task 2',
@@ -29,6 +29,9 @@ class Task{
   void setTitle(String title){
     this.title = title;
   }
+  int getId(){
+    return this.id;
+  }
   void setDescription(String description){
     this.description = description;
   }
@@ -38,8 +41,14 @@ class Task{
   void setIsDone(bool isDone){
     this.isDone = isDone;
   }
-  void changeIsDone(){
-    this.isDone = !this.isDone;
+  static void changeIsDone(int id){
+    tasks[id].setIsDone(!tasks[id].isDone);
+  }
+  static void deleteTask(int id){
+    tasks.removeAt(id);
+  }
+  static void addTask(Task task){
+    tasks.add(task);
   }
   String getTitle(){
     return this.title;
@@ -56,10 +65,10 @@ class Task{
   equals(Task task){
     return this.id == task.id;
   }
-  void deleteTask(){
-    tasks.remove(this);
-
-  }
+  // void deleteTask(){
+  //   tasks.remove(this);
+  //
+  // }
 
   @override
   String toString() {
