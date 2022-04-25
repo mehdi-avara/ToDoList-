@@ -11,26 +11,7 @@ class ToDoList extends StatefulWidget {
 
 class _ToDoListState extends State<ToDoList> {
 
-  List<Task> tasks = [
-    Task(
-      title: 'Task 1',
-      description: 'Description 1',
-      date: DateTime.now().toString(),
-      isDone: false,
-    ),
-    Task(
-      title: 'Task 2',
-      description: 'Description 2',
-      date: DateTime.now().toString(),
-      isDone: false,
-    ),
-    Task(
-      title: 'Task 3',
-      description: 'Description 3',
-      date: DateTime.now().toString(),
-      isDone: false,
-    ),
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,13 +19,46 @@ class _ToDoListState extends State<ToDoList> {
         title: Text('ToDoList'),
       ),
       body: Container(
-        child: ListView.builder(
-            itemCount: tasks.length,
-            itemBuilder: (context, index) {
-              return TaskItem(
-                task: tasks[index],
-              );
-            }),
+        child: Stack(
+          children: [
+            ListView.builder(
+                itemCount: Task.tasks.length,
+                itemBuilder: (context, index) {
+                  return TaskItem(
+                    task: Task.tasks[index],
+                  );
+                }),
+            Positioned(
+              bottom: 24.0,
+              right: 0.0,
+              child: GestureDetector(
+                onTap: () {
+
+                },
+                child: Container(
+                  width: 60.0,
+                  height: 60.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+
+                      colors: [
+                        Colors.blue,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    ),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.black,
+                    size: 32.0,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
