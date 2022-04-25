@@ -28,6 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_datetime_picker: ^1.5.1
+  time_picker_widget: ^1.0.0+10
   flutter:
     sdk: flutter
 

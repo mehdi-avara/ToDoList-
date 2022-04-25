@@ -64,6 +64,11 @@ class _addTaskState extends State<addTask> {
                   'show date time picker',
                   style: TextStyle(color: Colors.blue),
                 )),
+              TextButton(onPressed: (){
+                showTimePicker(context: context, initialTime: TimeOfDay.now()).then((time){
+                  dateOut = DateTime(dateOut.year, dateOut.month, dateOut.day, time.hour, time.minute);
+                });
+              }, child: Text('show time picker',style: TextStyle(color: Colors.blue),)),
               Container(
                 margin: EdgeInsets.only(top: 20),
                 width: 80,
