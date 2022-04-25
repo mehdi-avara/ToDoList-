@@ -18,6 +18,11 @@ class _ToDoListState extends State<ToDoList> {
       tasks[index].isDone = !tasks[index].isDone;
     });
   }
+  void deleteTask(int index){
+    setState(() {
+      tasks.removeAt(index);
+    });
+  }
 
   List<Task> tasks = [
     Task(
@@ -52,7 +57,7 @@ class _ToDoListState extends State<ToDoList> {
                 itemCount: tasks.length,
                 itemBuilder: (context, index) {
                   return TaskItem(
-                    task: tasks[index],changeIsDone: () => changeIsDone(index),
+                    task: tasks[index],changeIsDone: () => changeIsDone(index),deleteTask: () => deleteTask(index),
                   );
                 }),
             Positioned(
