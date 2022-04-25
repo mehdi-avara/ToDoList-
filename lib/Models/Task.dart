@@ -6,7 +6,7 @@ class Task extends StatefulWidget {
   final int id = Task.counter++;
   String title;
   String description;
-  String date;
+  DateTime date;
   bool isDone;
   static int counter = 0;
   Task({this.title, this.description, this.date, this.isDone});
@@ -31,7 +31,7 @@ class _TaskState extends State<Task> {
     this.widget.description = description;
   }
 
-  void setDate(String date){
+  void setDate(DateTime date){
     this.widget.date = date;
   }
 
@@ -47,7 +47,7 @@ class _TaskState extends State<Task> {
     return this.widget.description;
   }
 
-  String getDate(){
+  DateTime getDate(){
     return this.widget.date;
   }
 

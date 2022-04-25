@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todolist/Models/Task.dart';
+import 'package:todolist/pages/addTask.dart';
 import 'package:todolist/widgets.dart';
 class ToDoList extends StatefulWidget {
   const ToDoList({Key key}) : super(key: key);
@@ -28,19 +29,19 @@ class _ToDoListState extends State<ToDoList> {
     Task(
       title: 'Task 1',
       description: 'Description 1',
-      date: DateTime.now().toString(),
+      date: DateTime.now(),
       isDone: true,
     ),
     Task(
       title: 'Task 2',
       description: 'Description 2',
-      date: DateTime.now().toString(),
+      date: DateTime.now(),
       isDone: false,
     ),
     Task(
       title: 'Task 3',
       description: 'Description 3',
-      date: DateTime.now().toString(),
+      date: DateTime.now(),
       isDone: false,
     ),
   ];
@@ -65,7 +66,10 @@ class _ToDoListState extends State<ToDoList> {
               right: 0.0,
               child: GestureDetector(
                 onTap: () {
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => addTask()),
+                  );
                 },
                 child: Container(
                   width: 60.0,
