@@ -5,6 +5,7 @@ class ToDoList extends StatefulWidget {
   const ToDoList({Key key}) : super(key: key);
 
 
+
   @override
   State<ToDoList> createState() => _ToDoListState();
 }
@@ -12,6 +13,32 @@ class ToDoList extends StatefulWidget {
 class _ToDoListState extends State<ToDoList> {
 
 
+  void changeIsDone(int index){
+    setState(() {
+      tasks[index].isDone = !tasks[index].isDone;
+    });
+  }
+
+  List<Task> tasks = [
+    Task(
+      title: 'Task 1',
+      description: 'Description 1',
+      date: DateTime.now().toString(),
+      isDone: true,
+    ),
+    Task(
+      title: 'Task 2',
+      description: 'Description 2',
+      date: DateTime.now().toString(),
+      isDone: false,
+    ),
+    Task(
+      title: 'Task 3',
+      description: 'Description 3',
+      date: DateTime.now().toString(),
+      isDone: false,
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,10 +49,10 @@ class _ToDoListState extends State<ToDoList> {
         child: Stack(
           children: [
             ListView.builder(
-                itemCount: Task.tasks.length,
+                itemCount: tasks.length,
                 itemBuilder: (context, index) {
                   return TaskItem(
-                    task: Task.tasks[index],
+                    task: tasks[index],changeIsDone: () => changeIsDone(index),
                   );
                 }),
             Positioned(
