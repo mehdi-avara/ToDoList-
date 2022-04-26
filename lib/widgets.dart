@@ -11,7 +11,7 @@ class TaskItem extends StatelessWidget {
   final bool isDone;
   // TaskItem({this.title, this.description, this.isDone});
   TaskItem({Task task, this.changeIsDone, this.deleteTask}) : this.task=task, this.title = task.title, this.description = task.description, this.isDone = task.isDone;
-
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,7 +37,14 @@ class TaskItem extends StatelessWidget {
             color: task.date.isAfter(DateTime.now()) ? isDone ? Colors.grey : Colors.black : isDone ? Colors.grey : Colors.red,
           ),
         ),
-        subtitle: Text(description,),
+        subtitle: Column(
+          children: [
+            Text(description,),
+            Text(
+               "due to "+task.date.toString().substring(0,16),
+            ),
+          ],
+        ),
         trailing: IconButton(
           icon: Icon(Icons.delete),
           onPressed: () {

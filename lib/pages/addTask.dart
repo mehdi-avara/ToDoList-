@@ -38,7 +38,6 @@ class _addTaskState extends State<addTask> {
                 maxLines: null,
                 decoration: InputDecoration(
                   labelText: 'Task Name',
-
                 ),
               ),
               TextField(
