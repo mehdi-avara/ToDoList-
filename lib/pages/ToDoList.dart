@@ -17,6 +17,7 @@ class _ToDoListState extends State<ToDoList> {
   void AddTask(Task task){
     setState(() {
       tasks.add(task);
+      sortByDate();
     });
   }
 
@@ -29,6 +30,9 @@ class _ToDoListState extends State<ToDoList> {
     setState(() {
       tasks.removeAt(index);
     });
+  }
+  void sortByDate(){
+      tasks.sort((b,a) => a.date.compareTo(b.date));
   }
 
   List<Task> tasks = [];

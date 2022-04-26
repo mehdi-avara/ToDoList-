@@ -53,8 +53,8 @@ class _addTaskState extends State<addTask> {
                 onPressed: () {
                   DatePicker.showDatePicker(context,
                       showTitleActions: true,
-                      minTime: DateTime(2000, 1, 1),
-                      maxTime: DateTime(2019, 6, 7), onChanged: (date) {
+                      minTime: DateTime(0000, 1, 1),
+                      maxTime: DateTime(5000, 6, 7), onChanged: (date) {
                       dateOut = date;
                       }, onConfirm: (date) {
                         dateOut = date;

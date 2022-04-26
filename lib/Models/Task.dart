@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Task extends StatefulWidget {
-  // const Task({Key key}) : super(key: key);
 
   final int id = Task.counter++;
   String title;
