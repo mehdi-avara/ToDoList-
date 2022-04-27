@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:todolist/Models/Task.dart';
 import 'package:todolist/pages/addTask.dart';
 import 'package:todolist/widgets.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 class ToDoList extends StatefulWidget {
   const ToDoList({Key key}) : super(key: key);
 
@@ -20,7 +19,24 @@ class _ToDoListState extends State<ToDoList> {
       sortByDate();
     });
   }
-
+  void setDate(DateTime date,Task task){
+    setState(() {
+      task.setDate(date);
+      sortByDate();
+    });
+  }
+  void setTitle(String title,Task task){
+    setState(() {
+      task.setTitle(title);
+      sortByDate();
+    });
+  }
+  void setDescription(String description,Task task){
+    setState(() {
+      task.setDescription(description);
+      sortByDate();
+    });
+  }
   void changeIsDone(int index){
     setState(() {
       tasks[index].isDone = !tasks[index].isDone;
@@ -36,9 +52,9 @@ class _ToDoListState extends State<ToDoList> {
   void sortByDate(){
       tasks.sort((b,a) => a.date.compareTo(b.date));
   }
-  void updateTask(){
+  void updateTasks(){
     setState(() {
-
+      sortByDate();
     });
   }
 
@@ -56,7 +72,9 @@ class _ToDoListState extends State<ToDoList> {
                 itemCount: tasks.length,
                 itemBuilder: (context, index) {
                   return TaskItem(
-                    task: tasks[index],changeIsDone: () => changeIsDone(index),deleteTask: () => deleteTask(index),updateTask: () => updateTask(),
+                    task: tasks[index],
+                    changeIsDone: () => changeIsDone(index),
+                    deleteTask: () => deleteTask(index),
                   );
                 }),
             Positioned(

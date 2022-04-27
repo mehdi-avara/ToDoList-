@@ -6,12 +6,13 @@ class TaskItem extends StatelessWidget {
   final Task task;
   final Function changeIsDone;
   final Function deleteTask;
-  final Function updateTask;
+
   final String title;
   final String description;
   final bool isDone;
+
   // TaskItem({this.title, this.description, this.isDone});
-  TaskItem({Task task, this.changeIsDone, this.deleteTask, this.updateTask}) : this.task=task, this.title = task.title, this.description = task.description, this.isDone = task.isDone;
+  TaskItem({Task task, this.changeIsDone, this.deleteTask,  }) : this.task=task, this.title = task.title, this.description = task.description, this.isDone = task.isDone;
   
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,8 @@ class TaskItem extends StatelessWidget {
               builder: (context) => TaskPageView(
                 task: task,
                   deleteTask: () => deleteTask(),
+
+
               ),
             ),
           );

@@ -54,7 +54,7 @@ class _addTaskState extends State<addTask> {
                       showTitleActions: true,
                       minTime: DateTime(0000, 1, 1),
                       maxTime: DateTime(5000, 6, 7), onChanged: (date) {
-                      dateOut = date;
+                        dateOut = date;
                       }, onConfirm: (date) {
                         dateOut = date;
                       }, currentTime: DateTime.now(), locale: LocaleType.en);
@@ -62,7 +62,8 @@ class _addTaskState extends State<addTask> {
                 child: Text(
                   'show date time picker',
                   style: TextStyle(color: Colors.blue),
-                )),
+                )
+            ),
               TextButton(onPressed: (){
                 showTimePicker(context: context, initialTime: TimeOfDay.now()).then((time){
                   dateOut = DateTime(dateOut.year, dateOut.month, dateOut.day, time.hour, time.minute);
