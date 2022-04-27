@@ -30,9 +30,16 @@ class _ToDoListState extends State<ToDoList> {
     setState(() {
       tasks.removeAt(index);
     });
+
   }
+
   void sortByDate(){
       tasks.sort((b,a) => a.date.compareTo(b.date));
+  }
+  void updateTask(){
+    setState(() {
+
+    });
   }
 
   List<Task> tasks = [];
@@ -49,7 +56,7 @@ class _ToDoListState extends State<ToDoList> {
                 itemCount: tasks.length,
                 itemBuilder: (context, index) {
                   return TaskItem(
-                    task: tasks[index],changeIsDone: () => changeIsDone(index),deleteTask: () => deleteTask(index),
+                    task: tasks[index],changeIsDone: () => changeIsDone(index),deleteTask: () => deleteTask(index),updateTask: () => updateTask(),
                   );
                 }),
             Positioned(

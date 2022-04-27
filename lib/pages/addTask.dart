@@ -76,7 +76,7 @@ class _addTaskState extends State<addTask> {
                   onPressed: () {
                     String title = titleC.text;
                     String description = descriptionC.text;
-                    Task task = Task( title: title, description: description, isDone: false,date: dateOut);
+                    Task task = Task( title: title.isEmpty?"No title":title, description: description, isDone: false,date: dateOut);
                     widget.AddTask(task);
                     titleC.clear();
                     descriptionC.clear();
@@ -86,7 +86,6 @@ class _addTaskState extends State<addTask> {
                   child: Text('Add'),
                 ),
               ),
-
             ],
           ),
         ),
